@@ -25,7 +25,7 @@ void envCallback(const gazebo_interface::Environment::ConstPtr& envPtr){
 //Run planner in main function and perform publisher and subscriber
 int main(int argc, char **argv) {
 
-	
+
 
 
 	//Initialize ROS node
@@ -84,12 +84,12 @@ int main(int argc, char **argv) {
 
 	int count = 0;
 	while (ros::ok()){
-		
+
 		//Assign value into the publisher msg
 		{
 	        // robot position
 	        boost::shared_lock<boost::shared_mutex> lock(fpid_lock);
-	        
+
 	        //////////////////////////////
 			// Assign values to message //
 			// firstPrimAndID.cur_pos.x //
@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
 			// firstPrimAndID.primitive //
 			//////////////////////////////
       	}
-		
+
 
 		pose_pub.publish(firstPrimAndID);
 
@@ -106,7 +106,7 @@ int main(int argc, char **argv) {
 		loop_rate.sleep();
 		++count;
 	}
-	
+
 
 
 

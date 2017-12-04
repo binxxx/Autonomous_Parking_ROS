@@ -35,7 +35,6 @@ class GazeboUpdater {
   // publish to the gazebo state topic
   boost::thread gazebo_state_updater;
   ros::Publisher model_state;
-  boost::mutex gazebo_lock;
   std::string model_name, reference_name;
 
   // update dynamic obstacle position using service
@@ -94,9 +93,7 @@ class GazeboUpdater {
       tf::quaternionTFToMsg(rot, state.pose.orientation);
 
       // update
-      this->gazebo_lock.lock();
       this->model_state.publish(state);
-      this->gazebo_lock.unlock();
 
       rate.sleep();
     }
@@ -148,8 +145,8 @@ class GazeboUpdater {
   void threads_start(void) {
     this->publishers_group = boost::thread(&GazeboUpdater::publishers, this);
     ROS_INFO("[gazebo_interface] publishers spawned.");
-    // this->gazebo_state_updater = boost::thread(&GazeboUpdater::update_gazebo, this);
-    // ROS_INFO("[gazebo_interface] state updater spawned.");
+    this->gazebo_state_updater = boost::thread(&GazeboUpdater::update_gazebo, this);
+    ROS_INFO("[gazebo_interface] state updater spawned.");
     return;
   }
 
@@ -239,30 +236,10 @@ class GazeboUpdater {
       {
         boost::upgrade_lock<boost::shared_mutex> lock(this->cur_pos_update_lock);
         boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(lock);
-        this->cur_pos.x += trajectory[update_index * this->waypoint_dim];
-        this->cur_pos.y += trajectory[update_index * this->waypoint_dim + 1];
+        this->cur_pos.x += (trajectory[update_index * this->waypoint_dim] - trajectory[(update_index - 1) * this->waypoint_dim]);
+        this->cur_pos.y += (trajectory[update_index * this->waypoint_dim + 1] - trajectory[(update_index - 1) * this->waypoint_dim + 1]);
         this->cur_pos.z = trajectory[update_index * this->waypoint_dim + 2];
       }
-
-      // update here
-      gazebo_msgs::ModelState state;
-      state.model_name = this->model_name;
-      state.reference_frame = this->reference_name;
-
-      // set position
-      state.pose.position.x = this->cur_pos.x;
-      state.pose.position.y = this->cur_pos.y;
-      state.pose.position.z = 0.05;
-
-      // set orientation
-      tf::Quaternion rot = tf::createQuaternionFromRPY(0, 0, this->cur_pos.z);
-      tf::quaternionTFToMsg(rot, state.pose.orientation);
-
-      // update
-      this->gazebo_lock.lock();
-      this->model_state.publish(state);
-      this->gazebo_lock.unlock();
-
       rate.sleep();
     }
     return true;
@@ -436,6 +413,11 @@ class GazeboUpdater {
   }
 
   void obs_pos_updateCb(const gazebo_interface::DyObsUpdate::ConstPtr &next) {
+    // wait for the service to be available
+    this->obs_pos_setter.waitForExistence();
+
+    gazebo_msgs::SetModelState srv;
+
     gazebo_msgs::ModelState state;
     state.model_name = next->model_name;
     state.reference_frame = next->frame_name;
@@ -445,10 +427,19 @@ class GazeboUpdater {
     tf::Quaternion rot = tf::createQuaternionFromRPY(0, 0, next->position.z);
     tf::quaternionTFToMsg(rot, state.pose.orientation);
 
-    //update gazebo
-    this->gazebo_lock.lock();
-    this->model_state.publish(state);
-    this->gazebo_lock.unlock();
+    srv.request.model_state = state;
+
+    // call the service
+    if (!this->obs_pos_setter.call(srv)) {
+      ROS_ERROR("[gazebo_interface] Failed to update position for dynamic obstacle.");
+    } else {
+      // update the environment
+      {
+        boost::upgrade_lock<boost::shared_mutex> lock(this->obs_pos_update_lock);
+        boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(lock);
+        this->obs_pos = next->position;
+      }
+    }
 
     return;
   }
@@ -457,10 +448,13 @@ class GazeboUpdater {
 int main(int argc, char **argv) {
   // initizlize this node
   ros::init(argc, argv, "gazebo_interface");
+  ros::AsyncSpinner spinner(3);
+  spinner.start();
 
   GazeboUpdater updater("model_updater");
 
-  ros::spin();
+  ros::waitForShutdown();
+  spinner.stop();
 
   return 0;
 }
