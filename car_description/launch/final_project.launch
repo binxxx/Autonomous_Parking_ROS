@@ -9,7 +9,7 @@
   <arg name="car_init_x" default="30.5" />
   <arg name="car_init_y" default="5.0" />
   <arg name="car_init_yaw" default="-1.570796326794897" />
-  <arg name="car_update_freq" default="1.0" />
+  <arg name="car_update_freq" default="10.0" />
   <arg name="car_reference_frame" default="" />
   <arg name="car_position_topic" default="/planner/position_update" />
 
@@ -19,7 +19,7 @@
     <rosparam command="load" file="$(find car_description)/map/global_settings.yaml" />
     <rosparam command="load" file="$(find car_description)/map/motion_primitive.yaml" />
   </group>
-  
+
   <!-- Gazebo World -->
   <include file="$(find car_description)/launch/gazebo_world.launch" >
     <arg name="world_name" value="$(find car_description)/urdf/world/sample.world" />
