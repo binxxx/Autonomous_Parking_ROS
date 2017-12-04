@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- How fast should our car execute its trajectory? (Hz) -->
+  <arg name="execution_frequency" default="1.0" />
+  <!-- What's the name of our little car? -->
+  <arg name="model_name" default="audi_bot" />
+  <!-- What's the initial position of our little car? -->
+  <arg name="model_init_x" default="30.5" />
+  <arg name="model_init_y" default="0" />
+  <arg name="model_init_yaw" default="-1.570796326794897" />
+  <!-- What's the name of its reference frame? -->
+  <arg name="model_reference_name" default="" />
+  <!-- If use topic to update car position, which topic should we subscribe to? -->
+  <arg name="position_update_topic" default="/planner/position_update" />
+
+  <!-- Dynamic obstacle position update topic -->
+  <arg name="obs_pos_update_topic" default="/obs_planner/position_update" />
+
+  <!-- Frequency of environment update -->
+  <arg name="env_update_frequency" default="50.0" />
+
+  <!-- Launch the interface node -->
+  <node name="gazebo_interface" pkg="gazebo_interface" type="gazebo_interface" required="true" output="screen" >
+    <param name="execution_frequency" value="$(arg execution_frequency)" />
+    <param name="env_update_frequency" value="$(arg env_update_frequency)" />
+    <param name="position_update_topic" value="$(arg position_update_topic)" />
+    <param name="obs_pos_update_topic" value="$(arg obs_pos_update_topic)" />
+    <param name="model_name" value="$(arg model_name)" />
+    <param name="model_init_x" value="$(arg model_init_x)" />
+    <param name="model_init_y" value="$(arg model_init_y)" />
+    <param name="model_init_yaw" value="$(arg model_init_yaw)" />
+    <param name="model_reference_name" value="$(arg model_reference_name)" />
+  </node>
+
+</launch>

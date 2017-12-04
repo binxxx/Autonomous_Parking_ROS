@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2015-11-21T18:35:47</created>
+    <modified>2015-11-21T18:35:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Black_004-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.07843138 0.07843138 0.07843138 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.25 0.25 0.25 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Black_004-material" name="Black_004">
+      <instance_effect url="#Black_004-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="skirt_righ_002-mesh" name="skirt_righ.002">
+      <mesh>
+        <source id="skirt_righ_002-mesh-positions">
+          <float_array id="skirt_righ_002-mesh-positions-array" count="63">83.50466 -100.6097 17.37755 33.16497 -100.9581 17.55173 109.6325 -88.31221 20.75675 -73.92446 -97.5092 17.86526 -93.57261 -97.68338 17.93494 -108.3784 -84.72397 22.67279 -18.04565 -99.80846 17.69108 -104.7205 -98.24079 17.96977 -110.0854 -98.38014 18.00461 109.7022 -102.1774 21.41865 109.9809 -99.98265 17.30787 109.4584 -88.31221 26.40037 109.4584 -103.9541 26.4352 109.4932 -103.9889 26.01716 109.4932 -103.8147 25.59911 -109.0055 -103.1877 26.95776 -108.7616 -104.7205 31.73045 -108.7616 -86.70969 31.34724 -108.7616 -104.8598 32.1485 -108.7268 -104.825 32.60138 102.0729 -100.2265 17.30787</float_array>
+          <technique_common>
+            <accessor source="#skirt_righ_002-mesh-positions-array" count="21" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="skirt_righ_002-mesh-normals">
+          <float_array id="skirt_righ_002-mesh-normals-array" count="57">-0.005231499 0.2752817 -0.9613494 -0.006326198 0.3369744 -0.9414927 0.01284044 0.3820642 -0.9240466 -0.0191524 0.3239279 -0.9458879 -0.01458287 0.3250571 -0.945582 0.9973592 0.008457481 0.07213413 0.9995035 0.006497263 0.03083413 0.9965533 1.84841e-4 0.08295547 0.998759 -3.32827e-4 0.04980242 0.9999972 0.00219649 9.15881e-4 -0.9986782 0.001092791 0.05138778 -0.9936212 -0.01506352 0.1117591 -1 0 0 -0.9970752 0.003372013 0.07635289 -0.9915628 0.128836 -0.01430964 -0.004045009 0.2685883 -0.9632466 0.005096673 0.3409789 -0.9400572 -0.009450614 0.2835736 -0.958904 -0.008731245 0.2831555 -0.9590343</float_array>
+          <technique_common>
+            <accessor source="#skirt_righ_002-mesh-normals-array" count="19" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="skirt_righ_002-mesh-vertices">
+          <input semantic="POSITION" source="#skirt_righ_002-mesh-positions"/>
+        </vertices>
+        <polylist material="Black_004-material" count="19">
+          <input semantic="VERTEX" source="#skirt_righ_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#skirt_righ_002-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 3 1 4 1 5 1 6 2 3 2 5 2 4 3 7 3 5 3 7 4 8 4 5 4 2 5 9 5 10 5 2 6 11 6 9 6 11 7 12 7 13 7 11 8 14 8 9 8 11 9 13 9 14 9 15 10 16 10 17 10 8 11 15 11 17 11 16 12 18 12 17 12 18 13 19 13 17 13 5 14 8 14 17 14 2 15 1 15 5 15 1 16 6 16 5 16 20 17 0 17 2 17 2 18 10 18 20 18</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="skirt_righ" name="skirt_righ" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#skirt_righ_002-mesh" name="skirt_righ">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Black_004-material" target="#Black_004-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

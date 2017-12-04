@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2015-11-21T18:35:47</created>
+    <modified>2015-11-21T18:35:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Badging_002-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.3984314 0.3984314 0.3984314 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.25 0.25 0.25 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Badging_002-material" name="Badging_002">
+      <instance_effect url="#Badging_002-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="bumpe_002-mesh" name="bumpe.002">
+      <mesh>
+        <source id="bumpe_002-mesh-positions">
+          <float_array id="bumpe_002-mesh-positions-array" count="87">261.3664 32.34715 29.1525 260.8439 34.01933 29.1525 261.018 34.05417 30.89436 261.5406 32.38199 30.89436 234.5418 77.53096 30.3718 233.3573 78.85475 30.3718 233.1134 78.64574 32.11366 234.2979 77.32193 32.11366 261.3664 -33.28605 29.1525 261.5406 -33.32089 30.89436 261.018 -34.99308 30.89436 260.8439 -34.95824 29.1525 234.5418 -78.46985 30.3718 234.2979 -78.26084 32.11366 233.1134 -79.58464 32.11366 233.3573 -79.79367 30.3718 233.1483 -69.76056 54.4617 233.1483 -69.56896 57.17899 231.5806 -71.64177 57.33576 234.7159 -67.68775 54.30493 234.7159 -67.49614 57.02222 234.7159 -67.87935 51.58763 233.1483 -69.95217 51.7444 231.5806 -71.83338 54.61846 231.5806 -72.02498 51.90116 234.7159 66.94046 51.58763 231.5806 71.08609 51.90116 231.5806 70.70288 57.33576 234.7159 66.55725 57.02222</float_array>
+          <technique_common>
+            <accessor source="#bumpe_002-mesh-positions-array" count="29" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="bumpe_002-mesh-normals">
+          <float_array id="bumpe_002-mesh-normals-array" count="54">0.9496307 0.296699 -0.1008529 0.9496034 0.2967708 -0.1008993 0.7328682 0.6557694 0.1813029 0.732887 0.6557447 0.1813164 0.9496039 -0.2967686 -0.1008999 0.9496313 -0.2966969 -0.1008528 0.7328878 -0.6557473 0.1813038 0.7328701 -0.6557659 0.1813079 0.7983898 -0.6006496 0.04235327 0.7984198 -0.6006097 0.04235464 0.798416 -0.600615 0.04235023 0.7984229 -0.6006062 0.04234868 0.7984235 -0.600605 0.04235243 0.7983995 -0.600637 0.04235154 0.7984094 -0.6006237 0.04235184 0.7983934 -0.6006448 0.04235517 0.7984082 0.6006255 0.04235196 0.7984127 0.6006194 0.04235213</float_array>
+          <technique_common>
+            <accessor source="#bumpe_002-mesh-normals-array" count="18" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="bumpe_002-mesh-vertices">
+          <input semantic="POSITION" source="#bumpe_002-mesh-positions"/>
+        </vertices>
+        <polylist material="Badging_002-material" count="18">
+          <input semantic="VERTEX" source="#bumpe_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#bumpe_002-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 0 1 2 1 3 1 4 2 5 2 6 2 6 3 7 3 4 3 8 4 9 4 10 4 10 5 11 5 8 5 12 6 13 6 14 6 14 7 15 7 12 7 16 8 17 8 18 8 19 9 20 9 17 9 16 10 21 10 19 10 16 11 19 11 17 11 16 12 22 12 21 12 23 13 24 13 22 13 16 14 18 14 23 14 16 15 23 15 22 15 25 16 26 16 27 16 27 17 28 17 25 17</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="bumpe" name="bumpe" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#bumpe_002-mesh" name="bumpe">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Badging_002-material" target="#Badging_002-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

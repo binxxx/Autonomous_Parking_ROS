@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2015-11-21T18:35:47</created>
+    <modified>2015-11-21T18:35:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Licens_002-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.3984314 0.3984314 0.3984314 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.25 0.25 0.25 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Licens_002-material" name="Licens_002">
+      <instance_effect url="#Licens_002-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="bumpe6_002-mesh" name="bumpe6.002">
+      <mesh>
+        <source id="bumpe6_002-mesh-positions">
+          <float_array id="bumpe6_002-mesh-positions-array" count="30">260.0078 19.4574 56.98739 260.9483 -0.4694519 57.02222 262.1328 -0.4694519 47.16331 261.1574 19.49224 47.12848 258.684 30.15241 56.95255 259.9032 29.90855 47.09363 260.0078 -20.39631 56.98739 261.1574 -20.43114 47.12848 258.684 -31.09131 56.95255 259.9032 -30.84745 47.09363</float_array>
+          <technique_common>
+            <accessor source="#bumpe6_002-mesh-positions-array" count="10" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="bumpe6_002-mesh-normals">
+          <float_array id="bumpe6_002-mesh-normals-array" count="24">0.9917618 0.04701662 0.1191563 0.9920729 0.04867851 0.1158527 0.9857531 0.1223899 0.1153761 0.9857314 0.1190935 0.1189552 0.992152 -0.04703038 0.1158558 0.9916834 -0.04866307 0.119147 0.9853473 -0.1223557 0.1188269 0.9861487 -0.1191272 0.1154105</float_array>
+          <technique_common>
+            <accessor source="#bumpe6_002-mesh-normals-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="bumpe6_002-mesh-vertices">
+          <input semantic="POSITION" source="#bumpe6_002-mesh-positions"/>
+        </vertices>
+        <polylist material="Licens_002-material" count="8">
+          <input semantic="VERTEX" source="#bumpe6_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#bumpe6_002-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 0 1 2 1 3 1 4 2 0 2 3 2 3 3 5 3 4 3 1 4 6 4 7 4 7 5 2 5 1 5 6 6 8 6 9 6 9 7 7 7 6 7</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="bumpe6" name="bumpe6" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#bumpe6_002-mesh" name="bumpe6">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Licens_002-material" target="#Licens_002-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

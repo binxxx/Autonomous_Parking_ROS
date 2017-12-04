@@ -1,0 +1,12 @@
+# Goal definition
+int32 dimension
+float32[] trajectory
+---
+# Result definition
+bool success
+float32 percentage
+string reason
+---
+# Feedback
+float32 percentage
+geometry_msgs/Point32 current_position

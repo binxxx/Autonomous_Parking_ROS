@@ -1,0 +1,806 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 0.7 -->
+<robot name="audibot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <link name="base_footprint">
+    <inertial>
+      <origin xyz="1.678053 0 0.815995" rpy="0 0 0"/>
+      <mass value="1000.0"/>
+      <inertia ixx="50.403343" ixy="0" ixz="0" iyy="115.736679" iyz="0" izz="138.833328"/>
+    </inertial>
+    <visual name="base_a">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/base_a.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black.004"/>
+    </visual>
+    <visual name="base_b">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/base_b.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <visual name="base_c">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/base_c.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Misc_001"/>
+    </visual>
+    <visual name="body_a">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/body_a.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black.004"/>
+    </visual>
+    <visual name="body_b">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/body_b.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Misc_001"/>
+    </visual>
+    <visual name="body_c">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/body_c.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Badging.002"/>
+    </visual>
+    <visual name="body_d">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/body_d.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Bottom.002"/>
+    </visual>
+    <visual name="body_e">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/body_e.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="brakelig04">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/brakelig04.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Brakeligh.002"/>
+    </visual>
+    <visual name="brakelig07">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/brakelig07.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <visual name="brakelig11">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/brakelig11.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <visual name="brakelight">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/brakelight.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Brakeligh.002"/>
+    </visual>
+    <visual name="bumpe">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumpe.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Badging.002"/>
+    </visual>
+    <visual name="bumpe1">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumpe1.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Misc_2_001"/>
+    </visual>
+    <visual name="bumpe2">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumpe2.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Chrome.002"/>
+    </visual>
+    <visual name="bumpe3">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumpe3.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Misc_001"/>
+    </visual>
+    <visual name="bumpe4">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumpe4.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Misc_001"/>
+    </visual>
+    <visual name="bumpe5.000">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumpe5.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="bumpe6">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumpe6.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Licens.002"/>
+    </visual>
+    <visual name="bumper_fro">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumper_fro.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black.004"/>
+    </visual>
+    <visual name="bumper_r01">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumper_r01.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black.004"/>
+    </visual>
+    <visual name="bumper_r02">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumper_r02.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Brakeligh.002"/>
+    </visual>
+    <visual name="bumper_r03">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumper_r03.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Misc_001"/>
+    </visual>
+    <visual name="bumper_r04">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/bumper_r04.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="door_">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/door_.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Badging.002"/>
+    </visual>
+    <visual name="door_1">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/door_1.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Interior.002"/>
+    </visual>
+    <visual name="door_2">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/door_2.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Interior.002"/>
+    </visual>
+    <visual name="door_3">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/door_3.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Badging.002"/>
+    </visual>
+    <visual name="door_left_">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/door_left_.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="door_right">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/door_right.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="exhaust_a">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/exhaust_a.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black.004"/>
+    </visual>
+    <visual name="exhaust_b">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/exhaust_b.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Chrome.002"/>
+    </visual>
+    <visual name="fende">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/fende.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="fende1">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/fende1.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="fender_fro">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/fender_fro.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black.004"/>
+    </visual>
+    <visual name="headligh03">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/headligh03.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <visual name="headligh13">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/headligh13.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Headlight.002"/>
+    </visual>
+    <visual name="headlight_">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/headlight_.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <visual name="hood_a01">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/hood_a01.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Badging.002"/>
+    </visual>
+    <visual name="hood_a02">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/hood_a02.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="sidem">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/sidem.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="sidem1">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/sidem1.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="sidemirr04">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/sidemirr04.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Chrome.002"/>
+    </visual>
+    <visual name="sidemirror">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/sidemirror.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Chrome.002"/>
+    </visual>
+    <visual name="skirt">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/skirt.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="skirt1">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/skirt1.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="skirt_left">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/skirt_left.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black.004"/>
+    </visual>
+    <visual name="skirt_righ">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/skirt_righ.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black.004"/>
+    </visual>
+    <visual name="trunk_a">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/trunk_a.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Body.002"/>
+    </visual>
+    <visual name="trunk_b">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/trunk_b.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black.004"/>
+    </visual>
+    <visual name="windo">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/windo.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass_black_.002"/>
+    </visual>
+    <visual name="windo1">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/windo1.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass_black_.002"/>
+    </visual>
+    <visual name="window_f04">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/window_f04.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <visual name="window_f08">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/window_f08.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <visual name="window_fro">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/window_fro.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <visual name="window_r04">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/window_r04.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <visual name="window_r07">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/window_r07.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <visual name="window_rea">
+      <origin xyz="1.554524 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/window_rea.002.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Glass.002"/>
+    </visual>
+    <collision name="chassis_collision">
+      <origin xyz="1.398053 0 0.815995" rpy="0 0 0"/>
+      <geometry>
+        <box size="4.479999 2.1 1.280001"/>
+      </geometry>
+    </collision>
+    <collision name="front_left_bumper">
+      <origin xyz="3.898413 0.64447 0.477368" rpy="0 0 0.698132"/>
+      <geometry>
+        <box size="0.1 0.76 0.4"/>
+      </geometry>
+    </collision>
+    <collision name="front_right_bumper">
+      <origin xyz="3.898413 -0.64447 0.477368" rpy="0 0 -0.698132"/>
+      <geometry>
+        <box size="0.1 0.76 0.4"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wheel_fl">
+    <inertial>
+      <origin xyz="0 0 -0.12" rpy="0 0 0"/>
+      <mass value="10.0"/>
+      <inertia ixx="0.037227" ixy="0" ixz="0" iyy="0.037227" iyz="0" izz="0.063878"/>
+    </inertial>
+    <visual name="brake1.001">
+      <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/brake1.005.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Brackdisc_001.001"/>
+    </visual>
+    <visual name="wheel7.001">
+      <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel7.005.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Wheel_001.001"/>
+    </visual>
+    <visual name="wheel8.001">
+      <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel8.005.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Tire_001.001"/>
+    </visual>
+    <visual name="wheel_tire.001">
+      <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel_tire.005.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black_001.001"/>
+    </visual>
+    <collision name="wheel_fl_collision">
+      <origin xyz="0 0 -0.12" rpy="-3.141593 0 0"/>
+      <geometry>
+        <cylinder radius="0.357429" length="0.251907"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wheel_fl_steer">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.037227" ixy="0" ixz="0" iyy="0.037227" iyz="0" izz="0.063878"/>
+    </inertial>
+  </link>
+
+  <link name="wheel_fr">
+    <inertial>
+      <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+      <mass value="10.0"/>
+      <inertia ixx="0.037227" ixy="0" ixz="0" iyy="0.037227" iyz="0" izz="0.063878"/>
+    </inertial>
+    <visual name="brake1.002">
+      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/brake1.000.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Brackdisc_001.002"/>
+    </visual>
+    <visual name="wheel7.002">
+      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel7.000.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Wheel_001.002"/>
+    </visual>
+    <visual name="wheel8.002">
+      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel8.000.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Tire_001.002"/>
+    </visual>
+    <visual name="wheel_tire.002">
+      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel_tire.000.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black_001.002"/>
+    </visual>
+    <collision name="wheel_fl_collision.001">
+      <origin xyz="0 0 0.12" rpy="-3.141593 0 0"/>
+      <geometry>
+        <cylinder radius="0.357429" length="0.251907"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wheel_fr_steer">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.037227" ixy="0" ixz="0" iyy="0.037227" iyz="0" izz="0.063878"/>
+    </inertial>
+  </link>
+
+  <link name="wheel_rl">
+    <inertial>
+      <origin xyz="0 0 -0.12" rpy="0 0 0"/>
+      <mass value="10.0"/>
+      <inertia ixx="0.037227" ixy="0" ixz="0" iyy="0.037227" iyz="0" izz="0.063878"/>
+    </inertial>
+    <visual name="brake1">
+      <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/brake1.004.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Brackdisc_001"/>
+    </visual>
+    <visual name="wheel7">
+      <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel7.004.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Wheel_001"/>
+    </visual>
+    <visual name="wheel8">
+      <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel8.004.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Tire_001"/>
+    </visual>
+    <visual name="wheel_tire">
+      <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel_tire.004.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black_001"/>
+    </visual>
+    <collision name="wheel_rl_collision">
+      <origin xyz="0 0 -0.12" rpy="-3.141593 0 0"/>
+      <geometry>
+        <cylinder radius="0.357429" length="0.251907"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wheel_rr">
+    <inertial>
+      <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+      <mass value="10.0"/>
+      <inertia ixx="0.037227" ixy="0" ixz="0" iyy="0.037227" iyz="0" izz="0.063878"/>
+    </inertial>
+    <visual name="brake1.003">
+      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/brake1.001.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Brackdisc_001.003"/>
+    </visual>
+    <visual name="wheel7.003">
+      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel7.001.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Wheel_001.003"/>
+    </visual>
+    <visual name="wheel8.003">
+      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel8.001.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Tire_001.003"/>
+    </visual>
+    <visual name="wheel_tire.003">
+      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/car/wheel_tire.001.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="Black_001.003"/>
+    </visual>
+    <collision name="wheel_rr_collision">
+      <origin xyz="0 0 0.12" rpy="-3.141593 0 0"/>
+      <geometry>
+        <cylinder radius="0.357429" length="0.251907"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+
+
+
+
+
+  <!-- Joints -->
+  <joint name="wheel_fl" type="continuous">
+    <origin xyz="-3e-05 0.11 0" rpy="-1.570796 0 0"/>
+    <parent link="wheel_fl_steer"/>
+    <child link="wheel_fl"/>
+    <axis xyz="0 0 1.0"/>
+    <limit effort="0.0" velocity="125.0"/>
+  </joint>
+
+  <joint name="wheel_fl_steer" type="revolute">
+    <origin xyz="3.0537 0.95 0.36" rpy="0 0 0"/>
+    <parent link="base_footprint"/>
+    <child link="wheel_fl_steer"/>
+    <axis xyz="0 0 1.0"/>
+    <limit lower="-0.5" upper="0.5" effort="5000.0" velocity="0.5"/>
+  </joint>
+
+  <joint name="wheel_fr" type="continuous">
+    <origin xyz="-3e-05 -0.11 0" rpy="-1.570796 0 0"/>
+    <parent link="wheel_fr_steer"/>
+    <child link="wheel_fr"/>
+    <axis xyz="0 0 1.0"/>
+    <limit effort="0.0" velocity="125.0"/>
+  </joint>
+
+  <joint name="wheel_fr_steer" type="revolute">
+    <origin xyz="3.0537 -0.95 0.36" rpy="0 0 0"/>
+    <parent link="base_footprint"/>
+    <child link="wheel_fr_steer"/>
+    <axis xyz="0 0 1.0"/>
+    <limit lower="-0.5" upper="0.5" effort="5000.0" velocity="0.5"/>
+  </joint>
+
+  <joint name="wheel_rl" type="continuous">
+    <origin xyz="0.03 1.08 0.36" rpy="-1.570796 0 0"/>
+    <parent link="base_footprint"/>
+    <child link="wheel_rl"/>
+    <axis xyz="0 0 1.0"/>
+    <limit effort="5000.0" velocity="125.0"/>
+  </joint>
+
+  <joint name="wheel_rr" type="continuous">
+    <origin xyz="0.03 -1.06 0.36" rpy="-1.570796 0 0"/>
+    <parent link="base_footprint"/>
+    <child link="wheel_rr"/>
+    <axis xyz="0 0 1.0"/>
+    <limit effort="5000.0" velocity="125.0"/>
+  </joint>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Material Definition -->
+  <material name="Badging.002">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Black.004">
+    <color rgba="0.078431 0.078431 0.078431 1.0"/>
+  </material>
+
+  <material name="Black_001">
+    <color rgba="0.078431 0.078431 0.078431 1.0"/>
+  </material>
+
+  <material name="Black_001.001">
+    <color rgba="0.078431 0.078431 0.078431 1.0"/>
+  </material>
+
+  <material name="Black_001.002">
+    <color rgba="0.078431 0.078431 0.078431 1.0"/>
+  </material>
+
+  <material name="Black_001.003">
+    <color rgba="0.078431 0.078431 0.078431 1.0"/>
+  </material>
+
+  <material name="Body.002">
+    <color rgba="0.345098 0 0 1.0"/>
+  </material>
+
+  <material name="Bottom.002">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Brackdisc_001">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Brackdisc_001.001">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Brackdisc_001.002">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Brackdisc_001.003">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Brakeligh.002">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Chrome.002">
+    <color rgba="0 0 0 1.0"/>
+  </material>
+
+  <material name="Glass.002">
+    <color rgba="0.197647 0.197647 0.197647 1.0"/>
+  </material>
+
+  <material name="Glass_black_.002">
+    <color rgba="0.078431 0.078431 0.078431 1.0"/>
+  </material>
+
+  <material name="Headlight.002">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Interior.002">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Licens.002">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Misc_001">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Misc_2_001">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Tire_001">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Tire_001.001">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Tire_001.002">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Tire_001.003">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Wheel_001">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Wheel_001.001">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Wheel_001.002">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+  <material name="Wheel_001.003">
+    <color rgba="0.398431 0.398431 0.398431 1.0"/>
+  </material>
+
+</robot>

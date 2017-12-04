@@ -1,0 +1,104 @@
+#! /usr/bin/python
+
+import sys
+import yaml
+import numpy as np
+
+# Assumption: Rectangle Obstacles
+class RectObstacles():
+  def __init__(self, top_left = (0, 0), size = (0, 0)):
+    self.top_left = top_left
+    self.size = size
+
+  def set_topLeft(self, topLeft):
+    self.top_left = topLeft
+
+  def set_size(self, size):
+    self.size = size
+
+class MapGenerator():
+  def __init__(self):
+    self.map = None
+    self.map_size = None
+    self.grid_size = None
+    self.obstacles = list()
+
+  def add_obstacles(self, obstacles):
+    self.obstacles.append(obstacles)
+
+  def clear_obstacles(self):
+    self.obstacles = list()
+
+  def print_obstacles(self):
+    if len(self.obstacles) == 0:
+      print "None."
+      return
+    else:
+      print "[OBS] *********************************"
+      print "[OBS] **    top_left    ||    size   **"
+      print "[OBS] *********************************"
+
+      for each in self.obstacles:
+        print "[OBS] **  ({0}, {1})   ||   ({2}, {3})  **".format(each.top_left[0], each.top_left[1], each.size[0], each.size[1])
+
+      print "[OBS] *********************************"
+
+  def set_map_size(self, map_size):
+    self.map_size = map_size
+
+  def set_grid_size(self, grid_size):
+    self.grid_size = grid_size
+
+  def compute_map(self):
+    # compute the num of grids
+    print "[MAP] Building the map..."
+    grid_width = (int)(self.map_size[0] * 1.0 / self.grid_size + 0.5)
+    grid_length = (int)(self.map_size[1] * 1.0 / self.grid_size + 0.5)
+    print "[MAP] @Width: {0}\t@Length: {1}".format(grid_width, grid_length)
+    self.map = np.zeros((grid_length, grid_width))
+
+    # put the obstacles in
+    for each in self.obstacles:
+      mask = np.ones((each.size[1], each.size[0]))
+      right_down = ((each.top_left[0] + each.size[0]), (each.top_left[1] + each.size[1]))
+      self.map[each.top_left[1]:right_down[1], each.top_left[0]:right_down[0]] = mask
+    print "[MAP] @{0} obstacles added.".format(len(self.obstacles))
+    print "[MAP] @Saving the map into 'test.map', please check the correctness."
+    np.savetxt("test.map", self.map, fmt = '%d' ,delimiter = '')
+    print "[MAP] Done."
+
+  def retrieve_map(self):
+    return self.map.tolist()
+
+  def save_as_yaml(self):
+    print "#Saving to map/map.yaml..."
+    grid_width = (int)(self.map_size[0] * 1.0 / self.grid_size + 0.5)
+    grid_length = (int)(self.map_size[1] * 1.0 / self.grid_size + 0.5)
+    self.map = np.reshape(self.map, grid_width * grid_length)
+    param = {'map': self.map.tolist()}
+    print param
+    with open('map/map.yaml', 'w') as params_file:
+      yaml.dump(param, params_file, default_flow_style=True)
+    print "#Done."
+
+if __name__ == '__main__':
+  # test this generator
+  if len(sys.argv) < 4:
+    print "[MAP] Not enough arguments."
+    print "[MAP] Usage: ./map.generator [map_size] [grid_size] <[obstacles1]...>"
+    sys.exit(1)
+  
+  generator = MapGenerator()
+  generator.set_map_size((float(sys.argv[1]), float(sys.argv[2])))
+  generator.set_grid_size(float(sys.argv[3]))
+
+  # put in the obstacles
+  obstacles_params = [(int)(param) for param in sys.argv[4:]]
+  obstacles_params = zip(*[obstacles_params[index::4] for index in range(4)])
+  for each in obstacles_params:
+    obstacle = RectObstacles((each[0], each[1]), (each[2], each[3]))
+    generator.add_obstacles(obstacle)
+  generator.print_obstacles()
+  generator.compute_map()
+  print generator.map
+  generator.save_as_yaml()

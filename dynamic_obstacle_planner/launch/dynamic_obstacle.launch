@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- Start the dynamic obstacle -->
+  <node pkg="dynamic_obstacle_planner" type="obstacle.planner" name="obs_planner" respawn="true" output="screen" />
+
+</launch>

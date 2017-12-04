@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2015-11-21T18:35:47</created>
+    <modified>2015-11-21T18:35:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Glass_002-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.1976471 0.1976471 0.1976471 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.25 0.25 0.25 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Glass_002-material" name="Glass_002">
+      <instance_effect url="#Glass_002-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="brakelig11_002-mesh" name="brakelig11.002">
+      <mesh>
+        <source id="brakelig11_002-mesh-positions">
+          <float_array id="brakelig11_002-mesh-positions-array" count="93">-223.8287 -46.47277 87.88796 -226.8247 -45.32315 82.17465 -224.5603 -55.07755 81.9308 -220.7282 -56.08782 88.61952 -221.2508 -65.45903 81.54759 -217.349 -66.64348 87.88796 -211.9493 -68.07181 94.26316 -215.6072 -57.16777 95.16893 -217.2794 -75.28311 81.05986 -213.3079 -76.53724 87.01702 -205.2257 -82.80792 92.27743 -212.1583 -85.24653 80.4328 -208.1868 -86.36132 85.93708 -216.6871 -53.75373 95.16893 -217.3838 -52.04671 95.02957 -218.3245 -50.37452 94.54185 -219.3347 -49.01588 93.70576 -205.5741 -94.58288 79.24834 -205.5392 -94.61773 79.70122 -211.8448 -85.14202 79.91024 -203.6928 -94.96609 82.34884 -200.2788 -95.48867 86.52931 -198.746 -95.45382 88.23632 -198.2583 -95.00093 89.17694 -198.4324 -94.09516 89.87368 -199.7563 -91.8656 90.57041 -226.6854 -45.25347 81.58242 -224.2119 -55.00787 81.30373 -220.9024 -65.31967 80.92052 -216.931 -75.14376 80.46765 -220.9373 -47.69207 91.99874</float_array>
+          <technique_common>
+            <accessor source="#brakelig11_002-mesh-positions-array" count="31" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="brakelig11_002-mesh-normals">
+          <float_array id="brakelig11_002-mesh-normals-array" count="111">-0.882009 -0.2152299 0.419209 -0.8572355 -0.2418397 0.4545996 -0.8392488 -0.2846461 0.4632904 -0.8462698 -0.3013629 0.4393266 -0.7738721 -0.3056838 0.5546887 -0.7620603 -0.2842803 0.5817638 -0.8114793 -0.3512321 0.4670519 -0.8196634 -0.3730552 0.4347203 -0.6970867 -0.3983846 0.5961207 -0.7509592 -0.3557036 0.556359 -0.7722573 -0.4265646 0.4708093 -0.7822993 -0.4546111 0.4258363 -0.7024039 -0.4286183 0.5682564 -0.7738621 -0.2690491 0.5733672 -0.7826428 -0.2475522 0.571129 -0.7923752 -0.2455207 0.5584453 -0.815984 -0.5777806 0.01843053 -0.7257435 -0.4452754 -0.5244295 -0.6768954 -0.5551005 0.4834007 -0.6306762 -0.5190997 0.5768736 -0.6097378 -0.5535436 0.5672825 -0.6176649 -0.5441915 0.567755 -0.6442368 -0.4983556 0.5801731 -0.6467546 -0.5244236 0.5537945 -0.9451597 -0.2132179 -0.2474095 -0.8467277 -0.2006331 -0.4927461 -0.8344501 -0.2495518 -0.4913421 -0.8237786 -0.2437238 -0.5118471 -0.7921115 -0.2936454 -0.5350999 -0.8035827 -0.30118 -0.5133668 -0.7649298 -0.3593245 -0.534573 -0.7663398 -0.3604262 -0.5318048 -0.826957 -0.2275409 0.5141667 -0.7942246 -0.2437928 0.556572 -0.7742506 -0.2683764 0.573158 -0.7162433 -0.5520769 0.4268566 -0.7277862 -0.5464029 0.4144528</float_array>
+          <technique_common>
+            <accessor source="#brakelig11_002-mesh-normals-array" count="37" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="brakelig11_002-mesh-vertices">
+          <input semantic="POSITION" source="#brakelig11_002-mesh-positions"/>
+        </vertices>
+        <polylist material="Glass_002-material" count="37">
+          <input semantic="VERTEX" source="#brakelig11_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#brakelig11_002-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 0 1 2 1 3 1 2 2 4 2 5 2 5 3 3 3 2 3 6 4 7 4 3 4 3 5 5 5 6 5 4 6 8 6 9 6 9 7 5 7 4 7 9 8 10 8 6 8 6 9 5 9 9 9 8 10 11 10 12 10 12 11 9 11 8 11 12 12 10 12 9 12 3 13 13 13 14 13 3 14 7 14 13 14 3 15 15 15 16 15 17 16 18 16 11 16 11 17 19 17 17 17 20 18 21 18 12 18 21 19 22 19 23 19 21 20 23 20 24 20 21 21 24 21 25 21 25 22 10 22 12 22 21 23 25 23 12 23 2 24 1 24 26 24 26 25 27 25 2 25 2 26 27 26 28 26 28 27 4 27 2 27 29 28 8 28 4 28 4 29 28 29 29 29 8 30 29 30 19 30 19 31 11 31 8 31 0 32 3 32 30 32 3 33 16 33 30 33 3 34 14 34 15 34 18 35 20 35 12 35 12 36 11 36 18 36</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="brakelig11" name="brakelig11" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#brakelig11_002-mesh" name="brakelig11">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Glass_002-material" target="#Glass_002-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

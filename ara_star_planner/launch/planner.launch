@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- <include file="$(find gazebo_interface)/launch/gazebo_interface.launch"/> -->
+
+	<group ns="planner">
+		<node pkg="ara_star_planner" name="Planner" type="ara_star_planner" output="screen"/>
+	</group>
+
+</launch>

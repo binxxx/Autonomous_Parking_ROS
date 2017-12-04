@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2015-11-21T18:35:47</created>
+    <modified>2015-11-21T18:35:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Glass_002-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.1976471 0.1976471 0.1976471 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.25 0.25 0.25 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Glass_002-material" name="Glass_002">
+      <instance_effect url="#Glass_002-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="headlight__002-mesh" name="headlight_.002">
+      <mesh>
+        <source id="headlight__002-mesh-positions">
+          <float_array id="headlight__002-mesh-positions-array" count="84">242.1182 -61.66177 63.78064 246.7864 -54.58982 63.08389 243.1982 -57.13293 67.19467 237.5894 -64.06553 68.79721 219.1257 -89.04377 57.78865 227.1383 -82.42472 57.16158 225.2222 -83.12145 61.41171 217.0703 -89.56633 62.38714 230.2736 -79.11519 57.30093 233.8618 -75.24826 58.17185 205.5392 -93.67711 72.94281 205.2605 -94.23451 72.1764 205.4347 -94.5132 71.2358 206.2011 -93.05005 73.43053 236.3701 -69.4653 64.65158 240.1674 -67.34024 58.0325 246.02 -58.90963 57.33576 229.8556 -76.71144 65.45282 250.6185 -51.3848 56.63902 210.0332 -94.02549 62.87487 212.2976 -93.57261 58.34604 227.8002 -74.93473 70.81774 217.2445 -84.86333 72.45508 222.7836 -83.60919 66.18441 209.7197 -90.5766 73.29119 214.9104 -89.87989 66.84632 236.7185 -65.07582 68.97138 207.8385 -94.44353 67.29919</float_array>
+          <technique_common>
+            <accessor source="#headlight__002-mesh-positions-array" count="28" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="headlight__002-mesh-normals">
+          <float_array id="headlight__002-mesh-normals-array" count="99">0.7860486 -0.4805648 0.3888254 0.7471479 -0.5044388 0.4327951 0.6359094 -0.7543484 0.1630269 0.6226764 -0.7585256 0.1921275 0.6990021 -0.690509 0.1859929 0.5834444 -0.7428913 0.3281848 0.4883291 -0.7951555 0.3595309 0.7883767 -0.5499446 0.275723 0.803623 -0.5366083 0.2573745 0.72977 -0.625586 0.2758225 0.7605223 -0.602132 0.2429881 0.8146038 -0.5106148 0.2751244 0.8354761 -0.4869955 0.2545885 0.5351207 -0.8242398 0.1851343 0.5548121 -0.8173911 0.1550981 0.6480359 -0.6148445 0.4494616 0.6465482 -0.6150068 0.4513782 0.5833555 -0.7108111 0.3929937 0.5947532 -0.7061986 0.3841252 0.6877239 -0.568336 0.4516969 0.7047302 -0.5252727 0.476911 0.7477087 -0.5022836 0.4343302 0.5408515 -0.8191705 0.1908912 0.5342292 -0.8210878 0.2010324 0.6164321 -0.747999 0.2459858 0.6195567 -0.7473012 0.2401883 0.7058418 -0.6773972 0.2071726 0.701756 -0.6662708 0.2522337 0.6848069 -0.6722854 0.2811973 0.6911712 -0.5340421 0.4869101 0.549633 -0.7708663 0.3219763 0.5529124 -0.7683855 0.3222911 0.5253807 -0.7805216 0.3387641</float_array>
+          <technique_common>
+            <accessor source="#headlight__002-mesh-normals-array" count="33" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="headlight__002-mesh-vertices">
+          <input semantic="POSITION" source="#headlight__002-mesh-positions"/>
+        </vertices>
+        <polylist material="Glass_002-material" count="33">
+          <input semantic="VERTEX" source="#headlight__002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#headlight__002-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 0 1 2 1 3 1 4 2 5 2 6 2 6 3 7 3 4 3 8 4 9 4 6 4 10 5 11 5 12 5 12 6 13 6 10 6 0 7 14 7 15 7 0 8 15 8 16 8 14 9 17 9 9 9 9 10 15 10 14 10 1 11 0 11 16 11 16 12 18 12 1 12 7 13 19 13 20 13 20 14 4 14 7 14 21 15 22 15 23 15 23 16 17 16 21 16 22 17 24 17 25 17 25 18 23 18 22 18 21 19 17 19 14 19 3 20 26 20 14 20 14 21 0 21 3 21 25 22 27 22 19 22 19 23 7 23 25 23 23 24 25 24 7 24 7 25 6 25 23 25 8 26 6 26 5 26 6 27 9 27 17 27 6 28 17 28 23 28 14 29 26 29 21 29 13 30 12 30 27 30 24 31 13 31 27 31 27 32 25 32 24 32</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="headlight_" name="headlight_" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#headlight__002-mesh" name="headlight_">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Glass_002-material" target="#Glass_002-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

@@ -1,0 +1,17 @@
+map_metric:
+  grid_size: 0.1
+  x_size: 380
+  y_size: 330
+
+car_metric:
+  size: [1.0, 1.0]
+
+dynamic_obs_metric:
+  model_name: "dynamic_obs"
+  reference_frame: ""
+  size: [1.0, 1.0]
+  rate: 8.0
+  speed: 0.2
+  rad_speed: 3
+  start: [12, -2.5]
+  phase: 1

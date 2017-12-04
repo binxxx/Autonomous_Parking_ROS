@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2015-11-21T18:35:47</created>
+    <modified>2015-11-21T18:35:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Glass_002-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.1976471 0.1976471 0.1976471 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.25 0.25 0.25 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Glass_002-material" name="Glass_002">
+      <instance_effect url="#Glass_002-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="base_b_002-mesh" name="base_b.002">
+      <mesh>
+        <source id="base_b_002-mesh-positions">
+          <float_array id="base_b_002-mesh-positions-array" count="30">-61.76628 27.24266 128.7868 -67.61891 43.44194 112.9707 -67.34024 -0.03483706 113.6674 -61.34823 -0.03483706 129.7274 -62.11465 39.08729 127.6023 -62.77655 41.03817 125.7559 -61.76628 -27.31233 128.7868 -67.61891 -43.51161 112.9707 -62.18432 -39.15696 127.6023 -62.77655 -41.10784 125.7559</float_array>
+          <technique_common>
+            <accessor source="#base_b_002-mesh-positions-array" count="10" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="base_b_002-mesh-normals">
+          <float_array id="base_b_002-mesh-normals-array" count="24">-0.9380015 -4.57942e-4 0.3466308 -0.9369105 -0.002305209 0.3495619 -0.9335873 0.02178764 0.3576872 -0.9369105 0.002305209 0.3495619 -0.9380013 4.57943e-4 0.3466317 -0.9372498 -0.001788079 0.348654 -0.9294492 -0.06205731 0.363694 -0.9351547 0.007911145 0.3541513</float_array>
+          <technique_common>
+            <accessor source="#base_b_002-mesh-normals-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="base_b_002-mesh-vertices">
+          <input semantic="POSITION" source="#base_b_002-mesh-positions"/>
+        </vertices>
+        <polylist material="Glass_002-material" count="8">
+          <input semantic="VERTEX" source="#base_b_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#base_b_002-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 0 1 2 1 3 1 4 2 5 2 1 2 6 3 3 3 2 3 6 4 2 4 7 4 6 5 7 5 8 5 8 6 7 6 9 6 0 7 4 7 1 7</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="base_b" name="base_b" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#base_b_002-mesh" name="base_b">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Glass_002-material" target="#Glass_002-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

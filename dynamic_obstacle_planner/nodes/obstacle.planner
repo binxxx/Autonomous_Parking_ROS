@@ -1,0 +1,186 @@
+#! /usr/bin/python
+
+import sys
+import numpy as np
+import rospy
+from gazebo_interface.msg import DyObsUpdate
+from geometry_msgs.msg import Point32
+
+class DynamicObstacle():
+  def __init__(self):
+    rospy.loginfo("[OBS_PLANNER] Initializing obstacle planner...")
+
+    # what we need:
+    # global map
+    self.map = rospy.get_param("/global/map")
+    # robot name
+    self.robot_name = rospy.get_param("/global/dynamic_obs_metric/model_name", "dynamic_obs")
+    self.reference_frame = rospy.get_param("/global/dynamic_obs_metric/reference_frame", "")
+    # start point
+    self.start = rospy.get_param("/global/dynamic_obs_metric/start", [12, -2.5])
+    self.phase = rospy.get_param("/global/dynamic_obs_metric/phase", 1)
+    # how fast are we moving
+    self.moving_rate = rospy.get_param("/global/dynamic_obs_metric/rate", 1.0)
+    self.speed = rospy.get_param("/global/dynamic_obs_metric/speed", 0.5)
+    self.rad_speed = rospy.get_param("/global/dynamic_obs_metric/rad_speed", 5)
+
+    # topic and service initialization
+    self.obs_updater = rospy.Publisher("position_update", DyObsUpdate, queue_size = 10)
+
+    # local variables we need
+    self.cur_pos = Point32()
+    self.update_msg = DyObsUpdate()
+    self.update_msg.model_name = self.robot_name
+    self.update_msg.frame_name = self.reference_frame
+    self.cur_pos.x = self.start[0]; self.cur_pos.y = self.start[1]; self.cur_pos.z = np.pi;
+
+    rospy.loginfo("[OBS_PLANNER] Done.")
+
+  def __interpolate_circle(self, initial, end, center, R, phase):
+    trajectory = list()
+    for deg in range(self.rad_speed, 90, self.rad_speed):
+      waypoint = Point32()
+      rad = deg * np.pi / 180.0
+      if phase == 2:
+        waypoint.x = center.x - R * np.sin(rad)
+        waypoint.y = center.y + R * np.cos(rad)
+        waypoint.z = np.pi + rad
+      elif phase == 4:
+        waypoint.x = center.x - R * np.cos(rad)
+        waypoint.y = center.y - R * np.sin(rad)
+        waypoint.z = 1.5 * np.pi + rad
+      elif phase == 6:
+        waypoint.x = center.x + R * np.sin(rad)
+        waypoint.y = center.y - R * np.cos(rad)
+        waypoint.z = rad
+      else: # phase == 8
+        waypoint.x = center.x + R * np.cos(rad)
+        waypoint.y = center.y + R * np.sin(rad)
+        waypoint.z = 0.5 * np.pi + rad
+      trajectory.append(waypoint)
+    trajectory.append(end)
+
+    return trajectory
+
+  def drive(self):
+    rospy.loginfo("[OBS_PLANNER] CAUTION!! Dynamic Obstacle is on the go!!")
+
+    # we need to loop from PHASE_1 to PHASE_8
+    rate = rospy.Rate(self.moving_rate)
+    while not rospy.is_shutdown():
+      # PHASE_1
+      self.phase = 1
+      next_phase = False
+      while not rospy.is_shutdown() and not next_phase:
+        self.cur_pos.x -= self.speed
+        if self.cur_pos.x <= 10.0:
+          self.cur_pos.x = 10.0
+          next_phase = True
+        # update
+        self.update_msg.position = self.cur_pos
+        self.obs_updater.publish(self.update_msg)
+        rate.sleep()
+
+      # PHASE_2
+      self.phase = 2
+      initial = Point32(); end = Point32(); center = Point32()
+      initial.x = 10.0; initial.y = -2.5; initial.z = np.pi
+      end.x = 2.5; end.y = -10.0; end.z = 1.5 * np.pi
+      center.x = 10.0; center.y = -10.0;
+      trajectory = self.__interpolate_circle(initial, end, center, 7.5, self.phase)
+      for each in trajectory:
+        self.update_msg.position = each
+        self.obs_updater.publish(self.update_msg)
+        rate.sleep()
+      self.cur_pos = trajectory[-1]
+
+      # PHASE_3
+      self.phase = 3
+      next_phase = False
+      while not rospy.is_shutdown() and not next_phase:
+        self.cur_pos.y -= self.speed
+        if self.cur_pos.y <= -23.0:
+          self.cur_pos.y = -23.0
+          next_phase = True
+        # update
+        self.update_msg.position = self.cur_pos
+        self.obs_updater.publish(self.update_msg)
+        rate.sleep()
+
+      # PHASE_4
+      self.phase = 4
+      initial.x = 2.5; initial.y = -23.0; initial.z = 1.5 * np.pi
+      end.x = 10.0; end.y = -30.5; end.z = 0.0
+      center.x = 10.0; center.y = -23.0;
+      trajectory = self.__interpolate_circle(initial, end, center, 7.5, self.phase)
+      for each in trajectory:
+        self.update_msg.position = each
+        self.obs_updater.publish(self.update_msg)
+        rate.sleep()
+      self.cur_pos = trajectory[-1]
+
+      # PHASE_5
+      self.phase = 5
+      next_phase = False
+      while not rospy.is_shutdown() and not next_phase:
+        self.cur_pos.x += self.speed
+        if self.cur_pos.x >= 28.0:
+          self.cur_pos.x = 28.0
+          next_phase = True
+        # update
+        self.update_msg.position = self.cur_pos
+        self.obs_updater.publish(self.update_msg)
+        rate.sleep()
+
+      # PHASE_6
+      self.phase = 6
+      initial.x = 28.0; initial.y = -30.5; initial.z = 0.0
+      end.x = 35.5; end.y = -23.0; end.z = 0.5 * np.pi
+      center.x = 28.0; center.y = -23.0;
+      trajectory = self.__interpolate_circle(initial, end, center, 7.5, self.phase)
+      for each in trajectory:
+        self.update_msg.position = each
+        self.obs_updater.publish(self.update_msg)
+        rate.sleep()
+      self.cur_pos = trajectory[-1]
+
+      # PHASE_7
+      self.phase = 7
+      next_phase = False
+      while not rospy.is_shutdown() and not next_phase:
+        self.cur_pos.y += self.speed
+        if self.cur_pos.y >= -10.0:
+          self.cur_pos.y = -10.0
+          next_phase = True
+        # update
+        self.update_msg.position = self.cur_pos
+        self.obs_updater.publish(self.update_msg)
+        rate.sleep()
+
+      # PHASE_8
+      self.phase = 8
+      initial.x = 35.5; initial.y = -10.0; initial.z = 0.5 * np.pi
+      end.x = 28.0; end.y = -2.5; end.z = np.pi
+      center.x = 28.0; center.y = -10.0;
+      trajectory = self.__interpolate_circle(initial, end, center, 7.5, self.phase)
+      for each in trajectory:
+        self.update_msg.position = each
+        self.obs_updater.publish(self.update_msg)
+        rate.sleep()
+      self.cur_pos = trajectory[-1]
+
+      # Done
+      rospy.loginfo("[OBS_PLANNER] Full cycle finished.")
+
+    # ROS is shutdown
+    rospy.loginfo("[OBS_PLANNER] Node is shutting down, exit the planner...")
+    return
+
+if __name__ == '__main__':
+  # initialize the node
+  try:
+    rospy.init_node("obs_planner")
+    obstacle = DynamicObstacle()
+    obstacle.drive()
+  except rospy.exceptions.ROSInterruptException:
+    rospy.loginfo("[OBJ_PLANNER] Exit.")

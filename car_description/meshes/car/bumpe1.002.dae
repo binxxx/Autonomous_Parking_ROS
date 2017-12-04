@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2015-11-21T18:35:47</created>
+    <modified>2015-11-21T18:35:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Misc_2_001-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.3984314 0.3984314 0.3984314 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.25 0.25 0.25 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Misc_2_001-material" name="Misc_2_001">
+      <instance_effect url="#Misc_2_001-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="bumpe1_002-mesh" name="bumpe1.002">
+      <mesh>
+        <source id="bumpe1_002-mesh-positions">
+          <float_array id="bumpe1_002-mesh-positions-array" count="18">251.5771 42.5196 51.23926 254.8518 -0.4694519 51.23926 255.3396 -0.4694519 28.90864 252.7964 -43.4585 28.90864 251.5771 -43.4585 51.23926 252.7964 42.5196 28.90864</float_array>
+          <technique_common>
+            <accessor source="#bumpe1_002-mesh-positions-array" count="6" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="bumpe1_002-mesh-normals">
+          <float_array id="bumpe1_002-mesh-normals-array" count="12">0.9968748 0.07593804 0.02177584 0.9980174 -0.05904269 0.02180081 0.9956367 -0.07584273 0.05436384 0.9967751 0.05896818 0.05442601</float_array>
+          <technique_common>
+            <accessor source="#bumpe1_002-mesh-normals-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="bumpe1_002-mesh-vertices">
+          <input semantic="POSITION" source="#bumpe1_002-mesh-positions"/>
+        </vertices>
+        <polylist material="Misc_2_001-material" count="4">
+          <input semantic="VERTEX" source="#bumpe1_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#bumpe1_002-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 3 1 2 1 1 1 1 2 4 2 3 2 0 3 2 3 5 3</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="bumpe1" name="bumpe1" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#bumpe1_002-mesh" name="bumpe1">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Misc_2_001-material" target="#Misc_2_001-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

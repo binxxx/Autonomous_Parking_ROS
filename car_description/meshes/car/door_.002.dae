@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2015-11-21T18:35:47</created>
+    <modified>2015-11-21T18:35:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Badging_002-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.3984314 0.3984314 0.3984314 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.25 0.25 0.25 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Badging_002-material" name="Badging_002">
+      <instance_effect url="#Badging_002-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="door__002-mesh" name="door_.002">
+      <mesh>
+        <source id="door__002-mesh-positions">
+          <float_array id="door__002-mesh-positions-array" count="30">-43.02388 -100.5052 79.07415 -22.12159 -101.8638 79.28318 -22.12159 -103.7799 80.95536 -44.06901 -104.1283 81.40824 -22.12159 -104.1979 81.30373 -22.12159 -104.0238 81.86112 -44.27803 -103.9541 81.9308 -43.92965 -103.6405 81.09471 -22.12159 -102.7348 85.83256 -46.08956 -102.5258 86.28544</float_array>
+          <technique_common>
+            <accessor source="#door__002-mesh-positions-array" count="10" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="door__002-mesh-normals">
+          <float_array id="door__002-mesh-normals-array" count="24">-0.03518056 -0.6571164 -0.7529677 -0.00160712 -0.9545154 0.2981574 -0.001992762 -0.9489231 0.3155013 -0.005721151 -0.53952 -0.8419534 -0.009000062 -0.6401956 -0.7681593 -0.002021133 -0.9511517 0.3087176 -0.002416431 -0.9504886 0.3107503 -0.008829295 -0.5398811 -0.841695</float_array>
+          <technique_common>
+            <accessor source="#door__002-mesh-normals-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="door__002-mesh-vertices">
+          <input semantic="POSITION" source="#door__002-mesh-positions"/>
+        </vertices>
+        <polylist material="Badging_002-material" count="8">
+          <input semantic="VERTEX" source="#door__002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#door__002-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 3 1 4 1 5 1 5 2 6 2 3 2 4 3 3 3 7 3 7 4 2 4 4 4 6 5 5 5 8 5 8 6 9 6 6 6 0 7 2 7 7 7</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="door_" name="door_" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#door__002-mesh" name="door_">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Badging_002-material" target="#Badging_002-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

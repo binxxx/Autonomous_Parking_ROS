@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2015-11-21T18:35:47</created>
+    <modified>2015-11-21T18:35:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Glass_002-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.1976471 0.1976471 0.1976471 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.25 0.25 0.25 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Glass_002-material" name="Glass_002">
+      <instance_effect url="#Glass_002-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="headligh03_002-mesh" name="headligh03.002">
+      <mesh>
+        <source id="headligh03_002-mesh-positions">
+          <float_array id="headligh03_002-mesh-positions-array" count="84">242.1182 61.66177 63.78064 237.5894 64.06553 68.79721 243.1982 57.13293 67.19467 246.7864 54.58982 63.08389 219.1257 89.04377 57.78865 217.0703 89.56633 62.38714 225.2222 83.12145 61.41171 227.1383 82.42472 57.16158 230.2736 79.11519 57.30093 233.8618 75.24826 58.17185 205.5392 93.67711 72.94281 206.2011 93.05005 73.43053 205.4347 94.5132 71.2358 205.2605 94.23451 72.1764 246.02 58.90963 57.33576 240.1674 67.34024 58.0325 236.3701 69.4653 64.65158 229.8556 76.71144 65.45282 250.6185 51.3848 56.63902 212.2976 93.57261 58.34604 210.0332 94.02549 62.87487 227.8002 74.93473 70.81774 222.7836 83.60919 66.18441 217.2445 84.86333 72.45508 214.9104 89.87989 66.84632 209.7197 90.5766 73.29119 236.7185 65.07582 68.97138 207.8385 94.44353 67.29919</float_array>
+          <technique_common>
+            <accessor source="#headligh03_002-mesh-positions-array" count="28" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="headligh03_002-mesh-normals">
+          <float_array id="headligh03_002-mesh-normals-array" count="99">0.7471479 0.5044388 0.4327951 0.7860486 0.4805648 0.3888254 0.6226767 0.7585253 0.1921282 0.63591 0.7543479 0.1630269 0.6990021 0.690509 0.1859929 0.4883335 0.7951514 0.3595341 0.5834444 0.7428913 0.3281848 0.803623 0.5366083 0.2573745 0.7883767 0.5499446 0.275723 0.7605215 0.602133 0.2429878 0.7297697 0.6255863 0.2758224 0.8354752 0.4869967 0.2545888 0.8146033 0.5106156 0.2751242 0.5548115 0.8173913 0.1550988 0.5351207 0.8242399 0.1851335 0.646548 0.6150073 0.4513776 0.6480354 0.6148448 0.4494621 0.5947532 0.7061988 0.384125 0.5833551 0.710812 0.3929926 0.6877239 0.568336 0.4516969 0.7477084 0.5022848 0.4343296 0.7047273 0.5252757 0.4769119 0.5342301 0.8210876 0.2010316 0.5408518 0.8191699 0.1908927 0.6195559 0.7473016 0.2401889 0.616432 0.7479988 0.2459866 0.7058418 0.6773972 0.2071726 0.701756 0.6662708 0.2522337 0.6848069 0.6722854 0.2811973 0.6911712 0.5340421 0.4869101 0.549633 0.7708663 0.3219763 0.5253807 0.7805213 0.338765 0.5529136 0.7683846 0.3222915</float_array>
+          <technique_common>
+            <accessor source="#headligh03_002-mesh-normals-array" count="33" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="headligh03_002-mesh-vertices">
+          <input semantic="POSITION" source="#headligh03_002-mesh-positions"/>
+        </vertices>
+        <polylist material="Glass_002-material" count="33">
+          <input semantic="VERTEX" source="#headligh03_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#headligh03_002-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 0 1 2 1 3 1 4 2 5 2 6 2 6 3 7 3 4 3 8 4 6 4 9 4 10 5 11 5 12 5 12 6 13 6 10 6 0 7 14 7 15 7 0 8 15 8 16 8 16 9 15 9 9 9 9 10 17 10 16 10 3 11 18 11 14 11 14 12 0 12 3 12 5 13 4 13 19 13 19 14 20 14 5 14 21 15 17 15 22 15 22 16 23 16 21 16 23 17 22 17 24 17 24 18 25 18 23 18 21 19 16 19 17 19 1 20 0 20 16 20 16 21 26 21 1 21 24 22 5 22 20 22 20 23 27 23 24 23 22 24 6 24 5 24 5 25 24 25 22 25 8 26 7 26 6 26 6 27 17 27 9 27 6 28 22 28 17 28 16 29 21 29 26 29 11 30 27 30 12 30 25 31 24 31 27 31 27 32 11 32 25 32</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="headligh03" name="headligh03" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#headligh03_002-mesh" name="headligh03">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Glass_002-material" target="#Glass_002-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

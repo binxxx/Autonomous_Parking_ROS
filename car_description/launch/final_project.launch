@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="enable_dynamic_obstacle" default="true" />
+  <arg name="enable_gazebo_interface" default="true" />
+
+  <arg name="car_name" default="audi_bot" />
+  <arg name="car_init_x" default="30.5" />
+  <arg name="car_init_y" default="5.0" />
+  <arg name="car_init_yaw" default="-1.570796326794897" />
+  <arg name="car_update_freq" default="1.0" />
+  <arg name="car_reference_frame" default="" />
+  <arg name="car_position_topic" default="/planner/position_update" />
+
+  <!-- Load global parameters -->
+  <group ns="global">
+    <rosparam command="load" file="$(find car_description)/map/map.yaml" />
+    <rosparam command="load" file="$(find car_description)/map/global_settings.yaml" />
+    <rosparam command="load" file="$(find car_description)/map/motion_primitive.yaml" />
+  </group>
+  
+  <!-- Gazebo World -->
+  <include file="$(find car_description)/launch/gazebo_world.launch" >
+    <arg name="world_name" value="$(find car_description)/urdf/world/sample.world" />
+    <arg name="robot_name" value="$(arg car_name)" />
+    <arg name="robot_x" value="$(arg car_init_x)" />
+    <arg name="robot_y" value="$(arg car_init_y)" />
+    <arg name="robot_yaw" value="$(arg car_init_yaw)" />
+    <arg name="headless" value="false" />
+  </include>
+
+  <!-- Bring up the gazebo interface -->
+  <group if="$(arg enable_gazebo_interface)">
+    <include file="$(find gazebo_interface)/launch/gazebo_interface.launch">
+      <arg name="model_name" value="$(arg car_name)" />
+      <arg name="model_init_x" value="$(arg car_init_x)" />
+      <arg name="model_init_y" value="$(arg car_init_y)" />
+      <arg name="model_init_yaw" value="$(arg car_init_yaw)" />
+      <arg name="execution_frequency" value="$(arg car_update_freq)" />
+      <arg name="model_reference_name" value="$(arg car_reference_frame)" />
+      <arg name="position_update_topic" value="$(arg car_position_topic)" />
+    </include>
+  </group>
+
+  <!-- Bring up the dynamic obstacle -->
+  <group ns="obs_planner" if="$(arg enable_dynamic_obstacle)">
+    <include file="$(find dynamic_obstacle_planner)/launch/dynamic_obstacle.launch" />
+  </group>
+
+</launch>

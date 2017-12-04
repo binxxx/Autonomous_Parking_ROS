@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2015-11-21T18:35:47</created>
+    <modified>2015-11-21T18:35:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Black_001_002-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.07843138 0.07843138 0.07843138 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.25 0.25 0.25 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Black_001_002-material" name="Black_001_002">
+      <instance_effect url="#Black_001_002-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="wheel_tire_000-mesh" name="wheel_tire.000">
+      <mesh>
+        <source id="wheel_tire_000-mesh-positions">
+          <float_array id="wheel_tire_000-mesh-positions-array" count="90">-17.0907 -24.66021 17.2297 -22.66464 -24.66021 8.764275 -21.37567 -1.319313 8.520414 -16.11527 -1.319313 16.49812 -8.590439 -24.66021 22.69914 -8.067873 -1.319313 21.61918 1.407837 -24.62537 24.23197 1.372986 -1.284477 23.04751 11.16223 -24.62537 21.58435 10.60484 -1.284477 20.5044 19.0006 -24.62537 15.17431 17.95548 -1.284477 14.44273 23.56427 -24.62537 6.11665 22.24045 -1.284477 5.907627 24.05198 -24.62537 -3.95129 22.69333 -1.284477 -3.637753 20.39409 -24.62537 -13.39216 19.20963 -1.284477 -12.52123 13.18278 -24.62537 -20.53378 12.38153 -1.284477 -19.2448 3.741913 -24.62537 -24.122 3.463226 -1.284477 -22.58917 -6.360855 -24.66021 -23.52977 -6.082153 -1.319313 -22.03177 -15.38368 -24.66021 -18.89643 -14.58243 -1.319313 -17.64229 -21.68921 -24.66021 -11.02323 -20.53958 -1.319313 -10.1523 -24.26715 -24.66021 -1.23399 -22.94334 -1.319313 -0.9204559</float_array>
+          <technique_common>
+            <accessor source="#wheel_tire_000-mesh-positions-array" count="30" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="wheel_tire_000-mesh-normals">
+          <float_array id="wheel_tire_000-mesh-normals-array" count="90">0.8340883 -0.05179923 -0.5491936 0.8337119 -0.05207192 -0.5497391 0.5404587 -0.04891282 -0.8399476 0.5361763 -0.05098873 -0.8425646 0.1515231 -0.04907071 -0.987235 0.1495838 -0.04988789 -0.9874897 -0.2616321 -0.0493052 -0.9639075 -0.2652345 -0.05088317 -0.9628404 -0.6322306 -0.05086851 -0.7731086 -0.6353394 -0.05259621 -0.7704398 -0.8917455 -0.05401152 -0.4493027 -0.8923622 -0.05462414 -0.4480022 -0.9972054 -0.05699074 -0.0483064 -0.9972289 -0.05741214 -0.04731351 -0.9308305 -0.05902695 0.3606526 -0.9292541 -0.06075376 0.3644118 -0.7023068 -0.06210064 0.7091606 -0.7002245 -0.06330776 0.7111103 -0.354556 -0.06368774 0.9328634 -0.3503691 -0.06554114 0.9343158 0.05861932 -0.06472063 0.9961802 0.05840903 -0.06463259 0.9961984 0.4559133 -0.06242418 0.8878324 0.4579058 -0.0633648 0.8867396 0.7791126 -0.06027281 0.6239798 0.7811526 -0.06165724 0.6212883 0.9654559 -0.0570392 0.2542472 0.9660947 -0.05817258 0.251549 0.9859678 -0.05379778 -0.1580297 0.9849386 -0.05610066 -0.1635506</float_array>
+          <technique_common>
+            <accessor source="#wheel_tire_000-mesh-normals-array" count="30" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="wheel_tire_000-mesh-vertices">
+          <input semantic="POSITION" source="#wheel_tire_000-mesh-positions"/>
+        </vertices>
+        <polylist material="Black_001_002-material" count="30">
+          <input semantic="VERTEX" source="#wheel_tire_000-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#wheel_tire_000-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 0 1 2 1 3 1 4 2 0 2 3 2 3 3 5 3 4 3 6 4 4 4 5 4 5 5 7 5 6 5 8 6 6 6 7 6 7 7 9 7 8 7 10 8 8 8 9 8 9 9 11 9 10 9 12 10 10 10 11 10 11 11 13 11 12 11 14 12 12 12 13 12 13 13 15 13 14 13 16 14 14 14 15 14 15 15 17 15 16 15 18 16 16 16 17 16 17 17 19 17 18 17 20 18 18 18 19 18 19 19 21 19 20 19 22 20 20 20 21 20 21 21 23 21 22 21 24 22 22 22 23 22 23 23 25 23 24 23 26 24 24 24 25 24 25 25 27 25 26 25 28 26 26 26 27 26 27 27 29 27 28 27 1 28 28 28 29 28 29 29 2 29 1 29</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="wheel_tire_002" name="wheel_tire_002" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#wheel_tire_000-mesh" name="wheel_tire_002">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Black_001_002-material" target="#Black_001_002-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

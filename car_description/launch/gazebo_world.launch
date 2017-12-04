@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="world_name" />
+  <arg name="headless" default="false" />
+  <arg name="use_camera_control" default="false" />
+
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <!--<arg name="extra_gazebo_args" default=""/>-->
+  <arg name="debug" default="false"/>
+  <arg name="physics" default="ode"/>
+  <arg name="verbose" default="false"/>
+
+  <!-- set use_sim_time flag -->
+  <group if="$(arg use_sim_time)">
+    <param name="/use_sim_time" value="true" />
+  </group>
+
+  <!-- set command arguments -->
+  <arg unless="$(arg paused)" name="command_arg1" value=""/>
+  <arg     if="$(arg paused)" name="command_arg1" value="-u"/>
+  <arg unless="$(arg headless)" name="command_arg2" value=""/>
+  <arg     if="$(arg headless)" name="command_arg2" value="-r"/>
+  <arg unless="$(arg verbose)" name="command_arg3" value=""/>
+  <arg     if="$(arg verbose)" name="command_arg3" value="--verbose"/>
+  <arg unless="$(arg debug)" name="script_type" value="gzserver"/>
+  <arg     if="$(arg debug)" name="script_type" value="debug"/>
+
+  <!-- start gazebo server-->
+  <node name="gazebo" pkg="gazebo_ros" type="$(arg script_type)" respawn="false" output="screen"
+        args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) -e $(arg physics) $(arg world_name)" />
+
+  <!-- Load URDF into the gazebo server -->
+  <!-- Dynamic obstacles -->
+  <arg name="model_obs" default="$(find car_description)/urdf/audibot_obs.urdf.xacro" />
+  <param name="robot_description_obs" command="$(find xacro)/xacro.py $(arg model_obs)" />
+  <node name="urdf_spawner_obs" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model dynamic_obs -param robot_description_obs -x 12 -y -2.5 -z 0.05 -Y 3.1415926" />
+  <!-- Our little car -->
+  <arg name="robot_name" default="audi_bot" />
+  <arg name="robot_x" default="30.5" />
+  <arg name="robot_y" default="0" />
+  <arg name="robot_yaw" default="-1.570796326794897" />
+  <arg name="model_car" default="$(find car_description)/urdf/audibot.urdf.xacro" />
+  <param name="robot_description_car" command="$(find xacro)/xacro.py $(arg model_car)" />
+  <node name="urdf_spawner_car" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model $(arg robot_name) -param robot_description_car -x $(arg robot_x) -y $(arg robot_y) -z 0.3 -Y $(arg robot_yaw)" />
+
+  <!-- start gazebo client -->
+  <group unless="$(arg headless)">
+    <arg unless="$(arg use_camera_control)" name="gzclient_args" value="" />
+    <arg     if="$(arg use_camera_control)" name="gzclient_args" value="-g libview_control_plugin.so" />
+    <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" args="$(arg gzclient_args)" output="screen"/>
+  </group>
+
+</launch>
