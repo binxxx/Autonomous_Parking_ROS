@@ -10,7 +10,7 @@ dynamic_obs_metric:
   model_name: "dynamic_obs"
   reference_frame: ""
   size: [1.0, 1.0]
-  rate: 8.0
+  rate: 10.0
   speed: 0.2
   rad_speed: 3
   start: [12, -2.5]

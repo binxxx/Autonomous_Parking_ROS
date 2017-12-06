@@ -1,0 +1,9 @@
+# this is the service setting the new goal and starts the planner
+
+# set goal
+bool use_default
+geometry_msgs/Point32 goal
+---
+# response
+bool success
+string reason

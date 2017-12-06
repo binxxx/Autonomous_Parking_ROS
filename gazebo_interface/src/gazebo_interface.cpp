@@ -221,7 +221,7 @@ class GazeboUpdater {
     int dir_index = (int)((absolute_rad * 180.0 / M_PI) / 10.0 + 0.5);
     // check index validness
     if (7 < primitive || primitive < 0) {
-      ROS_ERROR("[gazebo_interface] Motion primitive out of range. [Given %d]", dir_index);
+      ROS_ERROR("[gazebo_interface] Motion primitive out of range. [Given %d]", primitive);
       return false;
     }
     ROS_INFO("[gazebo_interface][animation] Decoded direction index: %d.", dir_index);

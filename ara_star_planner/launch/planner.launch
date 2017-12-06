@@ -1,10 +1,14 @@
 <?xml version="1.0"?>
 <launch>
 
-	<!-- <include file="$(find gazebo_interface)/launch/gazebo_interface.launch"/> -->
+  <arg name="goal_x" default="30.5" />
+  <arg name="goal_y" default="3.0" />
+  <arg name="goal_yaw" default="-1.570796326794897" />
 
-	<group ns="planner">
-		<node pkg="ara_star_planner" name="Planner" type="ara_star_planner" output="screen"/>
-	</group>
+  <node pkg="ara_star_planner" name="Planner" type="ara_star_planner" output="screen">
+    <param name="goal_x" value="$(arg goal_x)" />
+    <param name="goal_y" value="$(arg goal_y)" />
+    <param name="goal_yaw" value="$(arg goal_yaw)" />
+  </node>
 
 </launch>

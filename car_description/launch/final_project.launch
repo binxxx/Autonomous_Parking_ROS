@@ -2,13 +2,29 @@
 
 <launch>
 
+  <arg name="enable_planner" default="true" />
   <arg name="enable_dynamic_obstacle" default="true" />
   <arg name="enable_gazebo_interface" default="true" />
 
   <arg name="car_name" default="audi_bot" />
-  <arg name="car_init_x" default="30.5" />
-  <arg name="car_init_y" default="5.0" />
-  <arg name="car_init_yaw" default="-1.570796326794897" />
+  <!-- <arg name="car_init_x" default="26.05" />
+  <arg name="car_init_y" default="-6.55" />
+  <arg name="car_init_yaw" default="3.1415926" />
+  <arg name="goal_x" default="5.35" />
+  <arg name="goal_y" default="-12.05" />
+  <arg name="goal_yaw" default="4.71238898" /> -->
+  <arg name="car_init_x" default="30.55" />
+  <arg name="car_init_y" default="-5.05" />
+  <arg name="car_init_yaw" default="4.71238898" />
+  <arg name="goal_x" default="30.55" />
+  <arg name="goal_y" default="-15.05" />
+  <arg name="goal_yaw" default="4.5378" />
+  <!-- <arg name="car_init_x" default="30.55" />
+  <arg name="car_init_y" default="-5.05" />
+  <arg name="car_init_yaw" default="4.71238898" />
+  <arg name="goal_x" default="29.155286" />
+  <arg name="goal_y" default="-18.238992" />
+  <arg name="goal_yaw" default="4.011" /> -->
   <arg name="car_update_freq" default="10.0" />
   <arg name="car_reference_frame" default="" />
   <arg name="car_position_topic" default="/planner/position_update" />
@@ -19,7 +35,7 @@
     <rosparam command="load" file="$(find car_description)/map/global_settings.yaml" />
     <rosparam command="load" file="$(find car_description)/map/motion_primitive.yaml" />
   </group>
-
+  
   <!-- Gazebo World -->
   <include file="$(find car_description)/launch/gazebo_world.launch" >
     <arg name="world_name" value="$(find car_description)/urdf/world/sample.world" />
@@ -40,6 +56,15 @@
       <arg name="execution_frequency" value="$(arg car_update_freq)" />
       <arg name="model_reference_name" value="$(arg car_reference_frame)" />
       <arg name="position_update_topic" value="$(arg car_position_topic)" />
+    </include>
+  </group>
+
+  <!-- Bring up the planner -->
+  <group ns="planner" if="$(arg enable_planner)">
+    <include file="$(find ara_star_planner)/launch/planner.launch">
+      <arg name="goal_x" value="$(arg goal_x)" />
+      <arg name="goal_y" value="$(arg goal_y)" />
+      <arg name="goal_yaw" value="$(arg goal_yaw)" />
     </include>
   </group>
 
