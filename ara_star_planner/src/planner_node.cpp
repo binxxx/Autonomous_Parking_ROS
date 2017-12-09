@@ -265,7 +265,7 @@ class ARAPlanner {
         obs_pos = this->env.dynamic_obs_pos;
       }
 
-      
+
 
       // did we get to the goal
       if (this->goal_reached(car_pos)) {
@@ -276,7 +276,7 @@ class ARAPlanner {
       }
       LIF_planner.setStart(car_pos.x, car_pos.y, car_pos.z);
       // call the planner here
-      ROS_INFO("[Planner] Start planner [From @(%lf, %lf, %lf) To @(%lf, %lf, %lf)]", 
+      ROS_INFO("[Planner] Start planner [From @(%lf, %lf, %lf) To @(%lf, %lf, %lf)]",
                 car_pos.x, car_pos.y, car_pos.z, this->goal.x, this->goal.y, this->goal.z);
       LIF_planner.ARAstar(obs_pos.x, obs_pos.y, obs_pos.z);
       ROS_INFO("[Planner] Finish planning. ");

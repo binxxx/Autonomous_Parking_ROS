@@ -138,7 +138,7 @@ int planner::getMapID(float x, float y, float theta)
 	int mx, my;
 	if (cont2discrete(x, y, mx, my))
 	{
-		return my * x_size * 36 + mx * 36 + (int)(theta / (2 * M_PI / 36));
+		return my * x_size * 36 + mx * 36 + (int)(theta / (2 * M_PI / 36)+0.5);
 	}
 	else
 	{
@@ -275,6 +275,11 @@ void planner::computePath()
 					// ROS_INFO("never visited");
 					float succ_h = computeHeuristic(succ_x, succ_y, succ_theta);
 					succ_node = new node(succ_x, succ_y, succ_theta, INF, succ_h, INF);
+
+					// liu's code
+					ROS_INFO("node: %d: x: %lf  y:%lf  theta:%lf", np, succ_node->x_, succ_node->y_, succ_node->theta_);
+					ROS_INFO("node id: %d", getMapID(succ_node->x_, succ_node->y_, succ_node->theta_));
+					// end liu's code
 					succ_node->parent_ = cur_node;
 					succ_node->prim_ = np;
 					visited[succ_ID] = true;
@@ -407,6 +412,9 @@ void planner::ARAstar(float obx, float oby, float ob_theta) {
 	auto start_handle = open.Insert(start_node->f_, start_node);
 	ID2node[getMapID(start_x, start_y, start_theta)] = start_handle;
 	// ROS_INFO("FUCKKKKKKKKKKKKKKKKKKK");
+
+	// liu's code
+  ROS_INFO("goal node id: %d", getMapID(goal_node->x_, goal_node->y_, goal_node->theta_));
 	computePath();
 	// ROS_INFO("finish compute path");
 

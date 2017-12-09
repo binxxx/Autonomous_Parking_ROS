@@ -86,7 +86,7 @@ class GazeboUpdater {
       // set position
       state.pose.position.x = next.x;
       state.pose.position.y = next.y;
-      state.pose.position.z = 0.05;
+      state.pose.position.z = 0.05; // what does here mean?
 
       // set orientation
       tf::Quaternion rot = tf::createQuaternionFromRPY(0, 0, next.z);
@@ -249,7 +249,7 @@ class GazeboUpdater {
   GazeboUpdater(std::string action_name) :
     nh("gazebo_interface"),
     pnh("~"),
-    action_server_name(action_name), 
+    action_server_name(action_name),
     trj_updater(nh, action_name, boost::bind(&GazeboUpdater::executeCb, this, _1), false) {
     ROS_INFO("[gazebo_interface] Initializing gazebo interface...");
     // initialize this node

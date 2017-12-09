@@ -7,24 +7,40 @@
   <arg name="enable_gazebo_interface" default="true" />
 
   <arg name="car_name" default="audi_bot" />
-  <!-- <arg name="car_init_x" default="26.05" />
-  <arg name="car_init_y" default="-6.55" />
-  <arg name="car_init_yaw" default="3.1415926" />
-  <arg name="goal_x" default="5.35" />
-  <arg name="goal_y" default="-12.05" />
-  <arg name="goal_yaw" default="4.71238898" /> -->
+
   <arg name="car_init_x" default="30.55" />
+  <arg name="car_init_y" default="-6.05" />
+  <arg name="car_init_yaw" default="3.141592653589793" />
+  <arg name="goal_x" default="24.856470108" />
+  <arg name="goal_y" default="-11.8865289688" />
+  <arg name="goal_yaw" default="4.71238898038469" />
+
+  <!-- <arg name="car_init_x" default="30.45" />
+  <arg name="car_init_y" default="-6.05" />
+  <arg name="car_init_yaw" default="4.5378573071795865" /> -->
+
+  <!-- <arg name="goal_x" default="29.7418785095" />
+  <arg name="goal_y" default="-7.92293357849" />
+  <arg name="goal_yaw" default="4.1887902047863905" /> -->
+  <!-- <arg name="goal_x" default="30.17786678894" />
+  <arg name="goal_y" default="-7.01744270325" />
+  <arg name="goal_yaw" default="4.363322307179586" /> -->
+
+  <!-- <arg name="car_init_x" default="30.55" />
   <arg name="car_init_y" default="-5.05" />
   <arg name="car_init_yaw" default="4.71238898" />
   <arg name="goal_x" default="30.55" />
   <arg name="goal_y" default="-15.05" />
-  <arg name="goal_yaw" default="4.5378" />
+  <arg name="goal_yaw" default="4.5378" /> -->
+
   <!-- <arg name="car_init_x" default="30.55" />
   <arg name="car_init_y" default="-5.05" />
   <arg name="car_init_yaw" default="4.71238898" />
   <arg name="goal_x" default="29.155286" />
   <arg name="goal_y" default="-18.238992" />
   <arg name="goal_yaw" default="4.011" /> -->
+
+
   <arg name="car_update_freq" default="10.0" />
   <arg name="car_reference_frame" default="" />
   <arg name="car_position_topic" default="/planner/position_update" />
@@ -35,7 +51,7 @@
     <rosparam command="load" file="$(find car_description)/map/global_settings.yaml" />
     <rosparam command="load" file="$(find car_description)/map/motion_primitive.yaml" />
   </group>
-  
+
   <!-- Gazebo World -->
   <include file="$(find car_description)/launch/gazebo_world.launch" >
     <arg name="world_name" value="$(find car_description)/urdf/world/sample.world" />
