@@ -226,9 +226,9 @@ class GazeboUpdater {
     }
     ROS_INFO("[gazebo_interface][animation] Decoded direction index: %d.", dir_index);
     std::vector<float> trajectory = this->primitives[dir_index][primitive];
-    for (std::vector<float>::iterator it = trajectory.begin(); it != trajectory.end(); ++ it) {
-      ROS_INFO("%lf", *it);
-    }
+    // for (std::vector<float>::iterator it = trajectory.begin(); it != trajectory.end(); ++ it) {
+    //   ROS_INFO("%lf", *it);
+    // }
 
     // start execution
     ros::Rate rate(this->execution_freq);

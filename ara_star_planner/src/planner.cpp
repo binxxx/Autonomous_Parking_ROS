@@ -179,7 +179,7 @@ bool planner::applyAction(float curx, float cury, float curtheta,
 					float &succx, float &succy, float &succtheta, int prim)
 {
 	// ROS_INFO("prim: %d", prim);
-	int si = (int)(curtheta/(M_PI/18));
+	int si = (int)(curtheta/(M_PI/18)+0.5);
 	// ROS_INFO("si: %d", si);
 
 	float x, y, theta;
@@ -211,17 +211,23 @@ bool planner::applyAction(float curx, float cury, float curtheta,
 }
 
 void planner::trackPath(node* tmp_node) {
+	prim_set.clear();
 	// std::unordered_map<int, node*>::const_iterator back_it = closed.find(getMapID(goal_x, goal_y, goal_theta));
 	// node* tmp_node = back_it->second;
 	//node* tmp_node = open.GetValue(open.First());
 	int tmp_ID = getMapID(tmp_node->parent_->x_, tmp_node->parent_->y_, tmp_node->parent_->theta_);
+	ROS_INFO("Prim: %d \n", tmp_node->prim_);
+	prim_set.push_back(tmp_node->prim_);
 	int start_ID = getMapID(start_x, start_y, start_theta);
 	while (tmp_ID != start_ID) {
 		tmp_node = tmp_node->parent_;
 		tmp_ID = getMapID(tmp_node->parent_->x_, tmp_node->parent_->y_, tmp_node->parent_->theta_);
+		prim_set.push_back(tmp_node->prim_);
 	}
 	// ROS_INFO("finish track path, prim id=%d", tmp_node->prim_);
+	std::reverse(std::begin(prim_set), std::end(prim_set));
 	publish_primID = tmp_node->prim_;
+
 }
 
 void planner::computePath()
@@ -236,7 +242,7 @@ void planner::computePath()
 
 		t2 = std::chrono::steady_clock::now();
 		time_in_planning = std::chrono::duration_cast<std::chrono::duration<double>> (t2-t1);
-		if (time_in_planning.count() > 30.0)
+		if (time_in_planning.count() > 300.0)
 		{
 			time_exit = true;
 			break;
@@ -276,10 +282,10 @@ void planner::computePath()
 					float succ_h = computeHeuristic(succ_x, succ_y, succ_theta);
 					succ_node = new node(succ_x, succ_y, succ_theta, INF, succ_h, INF);
 
-					// liu's code
-					ROS_INFO("node: %d: x: %lf  y:%lf  theta:%lf", np, succ_node->x_, succ_node->y_, succ_node->theta_);
-					ROS_INFO("node id: %d", getMapID(succ_node->x_, succ_node->y_, succ_node->theta_));
-					// end liu's code
+					// // liu's code
+					// ROS_INFO("node: %d: x: %lf  y:%lf  theta:%lf", np, succ_node->x_, succ_node->y_, succ_node->theta_);
+					// ROS_INFO("node id: %d", getMapID(succ_node->x_, succ_node->y_, succ_node->theta_));
+					// // end liu's code
 					succ_node->parent_ = cur_node;
 					succ_node->prim_ = np;
 					visited[succ_ID] = true;
@@ -420,7 +426,7 @@ void planner::ARAstar(float obx, float oby, float ob_theta) {
 
 	if (publish_primID == -1) return;
 
-	while (eps > 4.0)
+	while (eps >= 4.0)
 	{
 		eps = eps - 3.0;
 		ROS_INFO("CURRENT _________________________________________eps: %lf", eps);

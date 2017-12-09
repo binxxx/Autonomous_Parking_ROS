@@ -281,17 +281,30 @@ class ARAPlanner {
       LIF_planner.ARAstar(obs_pos.x, obs_pos.y, obs_pos.z);
       ROS_INFO("[Planner] Finish planning. ");
       // if the primitive generate by the planner is -1, remain the same position
-      if(LIF_planner.publish_primID != -1){
-        ROS_INFO("[Planner] Calculated primitive is %d", LIF_planner.publish_primID);
-      	this->current_position.x = LIF_planner.publish_x;
-  	    this->current_position.y = LIF_planner.publish_y;
-  	   	this->current_position.z = LIF_planner.publish_theta;
-  	    this->next_primitive = LIF_planner.publish_primID;
-      	this->forward();
+      // if(LIF_planner.publish_primID != -1){
+      //   ROS_INFO("[Planner] Calculated primitive is %d", LIF_planner.publish_primID);
+      // 	this->current_position.x = LIF_planner.publish_x;
+  	  //   this->current_position.y = LIF_planner.publish_y;
+  	  //  	this->current_position.z = LIF_planner.publish_theta;
+  	  //   this->next_primitive = LIF_planner.publish_primID;
+      // 	this->forward();
+      // } else {
+      //   ROS_WARN("[Planner] Motion primitive given -1.");
+      // }
+      if (LIF_planner.prim_set.empty()) {
+        ROS_WARN("[Planner] Trajectory empty!");
       } else {
-        ROS_WARN("[Planner] Motion primitive given -1.");
+        ROS_INFO("[Planner] Trajectory length: %ld.", LIF_planner.prim_set.size());
+        for (int trj_index = 0; trj_index < LIF_planner.prim_set.size(); trj_index ++) {
+          ROS_INFO("[Planner] -------------------------------------");
+          ROS_INFO("[Planner] Executing primitive (%d out of %ld)...", trj_index, LIF_planner.prim_set.size());
+          this->next_primitive = LIF_planner.prim_set[trj_index];
+          this->forward();
+          rate.sleep();
+        }
       }
 
+      break;
       // wait for the update to be ready
       rate.sleep();
     }

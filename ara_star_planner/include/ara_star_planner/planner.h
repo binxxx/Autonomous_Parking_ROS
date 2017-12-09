@@ -10,6 +10,7 @@
 #include <ros/console.h>
 #include <unordered_map>
 #include <chrono>
+#include<algorithm>
 #include "bintree.h"
 #define INF 1000000000000.0
 #define INVALID_PRIM -1
@@ -109,6 +110,7 @@ public:
 	float publish_x, publish_y;
 	float publish_theta;
 	int publish_primID;
+	std::vector<int> prim_set;
 
 	std::chrono::steady_clock::time_point t1;
 	std::chrono::steady_clock::time_point t2;

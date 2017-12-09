@@ -8,10 +8,25 @@
 
   <arg name="car_name" default="audi_bot" />
 
-  <arg name="car_init_x" default="30.55" />
+  <!-- Initial start -->
+  <arg name="car_init_x" default="29.05" />
   <arg name="car_init_y" default="-6.05" />
   <arg name="car_init_yaw" default="3.141592653589793" />
-  <arg name="goal_x" default="24.856470108" />
+
+  <!-- <arg name="car_init_x" default="26.1592750549" />
+  <arg name="car_init_y" default="-8.16411304474"/>
+  <arg name="car_init_yaw" default="4.014257279586958" /> -->
+
+  <!-- <arg name="car_init_x" default="25.5930919647" />
+  <arg name="car_init_y" default="-8.994437217771"/>
+  <arg name="car_init_yaw" default="4.1887902047863905" /> -->
+
+  <!-- <arg name="goal_x" default="25.1796913147" />
+  <arg name="goal_y" default="-9.91046237946" />
+  <arg name="goal_yaw" default="4.363323129985824" /> -->
+
+  <!-- final goal 270 degree -->
+  <arg name="goal_x" default="23.356470108" />
   <arg name="goal_y" default="-11.8865289688" />
   <arg name="goal_yaw" default="4.71238898038469" />
 
