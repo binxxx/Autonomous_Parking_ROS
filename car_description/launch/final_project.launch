@@ -10,7 +10,7 @@
 
   <!-- Initial start -->
   <arg name="car_init_x" default="29.05" />
-  <arg name="car_init_y" default="-6.05" />
+  <arg name="car_init_y" default="-5.05" />
   <arg name="car_init_yaw" default="3.141592653589793" />
 
   <!-- <arg name="car_init_x" default="26.1592750549" />
@@ -27,7 +27,7 @@
 
   <!-- final goal 270 degree -->
   <arg name="goal_x" default="23.356470108" />
-  <arg name="goal_y" default="-11.8865289688" />
+  <arg name="goal_y" default="-10.8865289688" />
   <arg name="goal_yaw" default="4.71238898038469" />
 
   <!-- <arg name="car_init_x" default="30.45" />

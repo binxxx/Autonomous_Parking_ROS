@@ -242,7 +242,7 @@ void planner::computePath()
 
 		t2 = std::chrono::steady_clock::now();
 		time_in_planning = std::chrono::duration_cast<std::chrono::duration<double>> (t2-t1);
-		if (time_in_planning.count() > 300.0)
+		if (time_in_planning.count() > 80.0)
 		{
 			time_exit = true;
 			break;

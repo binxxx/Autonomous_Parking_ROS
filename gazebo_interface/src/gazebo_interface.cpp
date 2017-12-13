@@ -217,6 +217,8 @@ class GazeboUpdater {
     // what direction are we facing?
     float absolute_rad = 0;
     this->cur_pos.z < 0? absolute_rad = this->cur_pos.z + 2 * M_PI : absolute_rad = this->cur_pos.z;
+    ROS_INFO("[gazebo_interface] Current x position is %lf.", this->cur_pos.x);
+    ROS_INFO("[gazebo_interface] Current y position is %lf.", this->cur_pos.y);
     ROS_INFO("[gazebo_interface] Absolute rad is %lf.", absolute_rad);
     int dir_index = (int)((absolute_rad * 180.0 / M_PI) / 10.0 + 0.5);
     // check index validness
